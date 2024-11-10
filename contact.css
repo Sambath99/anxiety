@@ -1,0 +1,290 @@
+@import "contact-header-footer.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-container {
+    max-width: 1400px;
+    margin: 5rem auto;
+    padding: 0rem;
+}
+
+.section-title {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #FF6B6B, #4ECDC4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s ease infinite;
+}
+
+.contact-desc {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 4rem;
+}
+
+/* Updated Social Media Section */
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 5rem;
+    padding: 0 2rem;
+}
+
+.social-btn {
+    position: relative;
+    height: 250px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    color: white;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-btn:hover {
+    transform: translateY(-15px) scale(1.02);
+}
+
+.social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(-100%) rotate(-45deg);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-btn:hover::before {
+    transform: translateX(100%) rotate(-45deg);
+}
+
+.social-btn i {
+    font-size: 4rem;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+.social-btn span {
+    font-size: 1.4rem;
+    font-weight: 600;
+    z-index: 1;
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+.social-btn:hover i {
+    transform: scale(1.2) rotate(360deg);
+}
+
+.social-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+}
+
+.social-btn:hover::after {
+    transform: scaleX(1);
+}
+
+/* Enhanced Social Media Gradients */
+.instagram {
+    background: linear-gradient(45deg, 
+        #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FFDC80);
+    background-size: 200% 200%;
+    animation: gradientMove 5s ease infinite;
+    box-shadow: 0 15px 30px rgba(131, 58, 180, 0.3);
+}
+
+.tiktok {
+    background: linear-gradient(45deg,
+        #000000, #25F4EE, #FE2C55, #000000);
+    background-size: 200% 200%;
+    animation: gradientMove 5s ease infinite;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.facebook {
+    background: linear-gradient(45deg,
+        #18ACFE, #0088F7, #0068E1, #0051B4);
+    background-size: 200% 200%;
+    animation: gradientMove 5s ease infinite;
+    box-shadow: 0 15px 30px rgba(24, 172, 254, 0.3);
+}
+
+.telegram {
+    background: linear-gradient(45deg,
+        #0088cc, #00B2FF, #0088cc, #00B2FF);
+    background-size: 200% 200%;
+    animation: gradientMove 5s ease infinite;
+    box-shadow: 0 15px 30px rgba(0, 136, 204, 0.3);
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+/* Modern Contact Form */
+.contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1.2rem;
+    background: rgba(247, 247, 247, 0.9);
+    border: 2px solid transparent;
+    border-radius: 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #4ECDC4;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(78, 205, 196, 0.1);
+}
+
+.form-group label {
+    position: absolute;
+    left: 1rem;
+    top: 1.2rem;
+    padding: 0 0.5rem;
+    color: #666;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group input:valid ~ label,
+.form-group textarea:valid ~ label {
+    top: -0.8rem;
+    left: 0.8rem;
+    font-size: 0.8rem;
+    background: white;
+    color: #4ECDC4;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.2rem;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(78, 205, 196, 0.3);
+}
+
+/* Animated Background */
+body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .social-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .social-btn {
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    .social-links {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .social-btn {
+        height: 150px;
+    }
+    
+    .social-btn i {
+        font-size: 3rem;
+    }
+    
+    .social-btn span {
+        font-size: 1.2rem;
+    }
+    
+    .contact-form {
+        padding: 2rem;
+    }
+}

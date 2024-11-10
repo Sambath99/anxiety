@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anxiety - Streetwear Brand</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo.PNG" alt="Anxiety Logo">
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#hoodies">Hoodies</a>
+                <a href="#caps">Caps</a>
+                <a href="#shirts">Shirts</a>
+                <a href="contact.html">Contact</a>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+            <div class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+        <div class="scroll-progress"></div>
+        <div class="scroll-indicator"></div>
+    </header>
+
+    <div class="cart-modal">
+        <div class="cart-content">
+            <h2>Shopping Cart</h2>
+            <div class="cart-items">
+                <!-- Cart items will be added here dynamically -->
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount">$0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="window.location.href='checkout.html'">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <div class="mobile-nav">
+        <div class="close-menu">
+            <i class="fas fa-times"></i>
+        </div>
+        
+        <div class="mobile-brand">
+            <img src="img/logo.PNG" alt="Anxiety Logo">
+            <p>Premium Streetwear Brand</p>
+        </div>
+        
+        <div class="mobile-nav-links">
+            <a href="#home">Home</a>
+            <a href="#hoodies">Hoodies</a>
+            <a href="#caps">Caps</a>
+            <a href="#shirts">Shirts</a>
+            <a href="https://www.youtube.com" class="youtube-link" target="_blank">Contact</a>
+            <a href="#" class="mobile-cart-btn">
+                Cart <span class="mobile-cart-count">0</span>
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        </div>
+        
+
+    </div>
+
+    <div class="slider-container">
+        <div class="slider">
+            <img src="slide-image/1.jpg" alt="Slide 1">
+            <img src="slide-image/2.jpg" alt="Slide 2">
+            <img src="slide-image/3.jpg" alt="Slide 3">
+            <img src="slide-image/4.JPEG" alt="Slide 4">
+            <img src="slide-image/5.JPEG" alt="Slide 5">
+            <img src="slide-image/6.JPEG" alt="Slide 6">
+            <img src="slide-image/7.jpg" alt="Slide 7">
+            <img src="slide-image/8.jpg" alt="Slide 8">
+            <img src="slide-image/9.JPEG" alt="Slide 9">
+            <img src="slide-image/10.JPEG" alt="Slide 10">
+            <img src="slide-image/11.JPEG" alt="Slide 11">
+        </div>
+        <div class="slider-nav"></div>
+        <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <main>
+        <section id="hoodies" class="products-section">
+            <h2>Hoodies Collection</h2>
+            <div class="products-grid">
+                <div class="product-card" data-product-id="hoodie006">
+                    <div class="product-image">
+                        <img src="detail-image/hoodie/hoodie-006/006front.png" alt="Hoodie 006">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hoodie 006</h3>
+                        <div class="stock-status"></div>
+                        <span class="price">$5.00</span>
+                        <div class="size-selector">
+                            <button type="button" class="size-btn" data-size="S">S</button>
+                            <button type="button" class="size-btn" data-size="M">M</button>
+                            <button type="button" class="size-btn" data-size="L">L</button>
+                            <button type="button" class="size-btn" data-size="XL">XL</button>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/hoodies/006.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-product-id="hoodie007">
+                    <div class="product-image">
+                        <img src="detail-image/hoodie/hoodie-007/007front.png" alt="Hoodie 007">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hoodie 007</h3>
+                        <span class="price">$89.99</span>
+                        <div class="stock-status"></div>
+                        <div class="size-selector">
+                            <button type="button" class="size-btn" data-size="S">S</button>
+                            <button type="button" class="size-btn" data-size="M">M</button>
+                            <button type="button" class="size-btn" data-size="L">L</button>
+                            <button type="button" class="size-btn" data-size="XL">XL</button>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/hoodies/007.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-product-id="hoodie012">
+                    <div class="product-image">
+                        <img src="detail-image/hoodie/hoodie-012/012front.JPEG" alt="Hoodie 012">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hoodie 012</h3>
+                        <div class="stock-status"></div>
+                        <span class="price">$89.99</span>
+                        <div class="size-selector">
+                            <button type="button" class="size-btn" data-size="S">S</button>
+                            <button type="button" class="size-btn" data-size="M">M</button>
+                            <button type="button" class="size-btn" data-size="L">L</button>
+                            <button type="button" class="size-btn" data-size="XL">XL</button>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/hoodies/012.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-product-id="hoodie013">
+                    <div class="product-image">
+                        <img src="detail-image/hoodie/hoodie-013/013front.JPEG" alt="Hoodie 013">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hoodie 013</h3>
+                        <div class="stock-status"></div>
+                        <span class="price">$89.99</span>
+                        <div class="size-selector">
+                            <button type="button" class="size-btn" data-size="S">S</button>
+                            <button type="button" class="size-btn" data-size="M">M</button>
+                            <button type="button" class="size-btn" data-size="L">L</button>
+                            <button type="button" class="size-btn" data-size="XL">XL</button>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/hoodies/013.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="caps" class="products-section">
+            <h2>Caps Collection</h2>
+            <div class="products-grid">
+                <div class="product-card" data-product-id="cap014">
+                    <div class="product-image">
+                        <img src="detail-image/cap/cap-014/capblack.png" alt="Cap 014">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cap 014</h3>
+                        <div class="stock-status"></div>
+                        <span class="price">$34.99</span>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/cap/014.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-product-id="cap015">
+                    <div class="product-image">
+                        <img src="detail-image/cap/cap-015/cappinkkkk.png" alt="Cap 015">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cap 015</h3>
+                        <div class="stock-status"></div>
+                        <span class="price">$34.99</span>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/cap/015.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-product-id="cap016">
+                    <div class="product-image">
+                        <img src="detail-image/cap/cap-016/camo.png" alt="Cap 016">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cap 016</h3>
+                        <div class="stock-status"></div>
+                        <span class="price">$34.99</span>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/cap/016.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="shirts" class="products-section">
+            <h2>Shirts Collection</h2>
+            <div class="products-grid">
+                <div class="product-card" data-product-id="shirt08">
+                    <div class="product-image">
+                        <img src="detail-image/shirt/shirt-08/008front.png" alt="Shirt 08">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Shirt 08</h3>
+                            <div class="stock-status"></div>
+                        <span class="price">$49.99</span>
+                        <div class="size-selector">
+                            <button type="button" class="size-btn" data-size="S">S</button>
+                            <button type="button" class="size-btn" data-size="M">M</button>
+                            <button type="button" class="size-btn" data-size="L">L</button>
+                            <button type="button" class="size-btn" data-size="XL">XL</button>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/shirt/08.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repeat for other shirts -->
+                <div class="product-card" data-product-id="shirt010">
+                    <div class="product-image">
+                        <img src="detail-image/shirt/shirt-010/010front.JPEG" alt="Shirt 010">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Shirt 010</h3>
+                        <div class="stock-status"></div>
+                        <span class="price">$49.99</span>
+                        <div class="size-selector">
+                            <button type="button" class="size-btn" data-size="S">S</button>
+                            <button type="button" class="size-btn" data-size="M">M</button>
+                            <button type="button" class="size-btn" data-size="L">L</button>
+                            <button type="button" class="size-btn" data-size="XL">XL</button>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/shirt/010.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continue with remaining shirts -->
+                <div class="product-card" data-product-id="shirt011">
+                    <div class="product-image">
+                        <img src="detail-image/shirt/shirt-011/011front.JPEG" alt="Shirt 011">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Shirt 011</h3>
+                        <div class="stock-status"></div>
+                        <span class="price">$49.99</span>
+                        <div class="size-selector">
+                            <button type="button" class="size-btn" data-size="S">S</button>
+                            <button type="button" class="size-btn" data-size="M">M</button>
+                            <button type="button" class="size-btn" data-size="L">L</button>
+                            <button type="button" class="size-btn" data-size="XL">XL</button>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/shirt/011.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional shirts -->
+                <div class="product-card" data-product-id="shirt017" >
+                    <div class="product-image">
+                        <img src="detail-image/shirt/shirt-017/017.png" alt="Shirt 017">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Shirt 017</h3>
+                        <div class="stock-status"></div>
+                        <span class="price">$49.99</span>
+                        <div class="size-selector">
+                            <button type="button" class="size-btn" data-size="S">S</button>
+                            <button type="button" class="size-btn" data-size="M">M</button>
+                            <button type="button" class="size-btn" data-size="L">L</button>
+                            <button type="button" class="size-btn" data-size="XL">XL</button>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/shirt/017.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="shirt019">
+                    <div class="product-image">
+                        <img src="detail-image/shirt/shirt-019/A19.png" alt="Shirt 019">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Shirt 019</h3>
+                        <div class="stock-status"></div>
+                        <span class="price">$49.99</span>
+                        <div class="size-selector">
+                            <button type="button" class="size-btn" data-size="S">S</button>
+                            <button type="button" class="size-btn" data-size="M">M</button>
+                            <button type="button" class="size-btn" data-size="L">L</button>
+                            <button type="button" class="size-btn" data-size="XL">XL</button>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/shirt/019.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="shirt020">
+                    <div class="product-image">
+                        <img src="detail-image/shirt/shirt-020/A20.png" alt="Shirt 020">
+                        <div class="product-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Shirt 020</h3>
+                        <div class="stock-status"></div>
+                        <span class="price">$49.99</span>
+                        <div class="size-selector">
+                            <button type="button" class="size-btn" data-size="S">S</button>
+                            <button type="button" class="size-btn" data-size="M">M</button>
+                            <button type="button" class="size-btn" data-size="L">L</button>
+                            <button type="button" class="size-btn" data-size="XL">XL</button>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="view-details" onclick="window.location.href='detail-html/shirt/020.html'">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Anxiety</h3>
+                <p>Premium streetwear for those who dare to be different.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@anxiety.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="footer-section social-links">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Anxiety. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="status.js"></script>
+</body>
+</html>
