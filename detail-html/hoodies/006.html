@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoodie 006 - Product Details</title>
+    <link rel="stylesheet" href="hoodie.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <a href="http://127.0.0.1:5500/index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+    <div class="container">
+        <div class="product-container">
+            <div class="image-gallery">
+                <div class="main-image">
+                    <button class="nav-btn prev-btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <img id="mainImage" src="path/to/your/image1.jpg" alt="Cap 014 Black Main View">
+                    <button class="nav-btn next-btn" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="thumbnail-wrapper">
+                    <div class="thumbnail-container">
+                        <div class="thumbnail-track" id="thumbnailTrack">
+                            <!-- Add your thumbnails dynamically via JavaScript -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="product-details">
+                <h1>Hoodie 006</h1>
+                <div class="price">$29.99</div>
+                <div class="stock-status"></div>
+                <div class="size-selector">
+                    <button type="button" class="size-btn" data-size="S">S</button>
+                    <button type="button" class="size-btn" data-size="M">M</button>
+                    <button type="button" class="size-btn" data-size="L">L</button>
+                    <button type="button" class="size-btn" data-size="XL">XL</button>
+                </div>
+                <div class="description">
+                    <p>Classic Hoodie 006 with premium quality materials. Perfect for everyday wear with adjustable strap for comfortable fit.</p>
+                </div>
+                <div class="product-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Adjustable strap</li>
+                        <li><i class="fas fa-check"></i> 100% Cotton</li>
+                        <li><i class="fas fa-check"></i> Breathable material</li>
+                    </ul>
+                </div>
+                <div class="add-to-cart">
+                    <div class="quantity">
+                        <button onclick="decrementQuantity()">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button onclick="incrementQuantity()">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart()">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="006.js"></script>
+</body>
+</html>
