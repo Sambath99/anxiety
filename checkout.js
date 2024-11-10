@@ -140,35 +140,119 @@ async function handleCheckout(e) {
     submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
     
     try {
-        // First, get existing orders
-        const getResponse = await fetch('https://api.jsonbin.io/v3/b/672f62feacd3cb34a8a58d90', {
-            headers: {
-                'X-Master-Key': '$2a$10$ecN6fjgbGla2pDCn7zYV1uaxDxNAQ.8chczGAcSCuGMQAFhPcXhEC'
-            }
-        });
-        
-        if (!getResponse.ok) {
-            throw new Error('Failed to fetch existing orders');
-        }
-        
-        const binData = await getResponse.json();
-        const existingOrders = Array.isArray(binData.record) ? binData.record : [];
-        
-        // Create new order
+        // Create new order object
         const newOrder = {
             ...formData,
             items: cart,
             orderDate: new Date().toISOString(),
             orderTotal: parseFloat(document.querySelector('.total .amount').textContent.replace('$', '')),
             status: 'pending',
-            orderId: Date.now() // Add unique order ID
+            orderId: Date.now()
         };
-        
-        // Add new order to existing orders
+
+        // Enhanced Discord webhook message
+        const discordMessage = {
+            embeds: [{
+                title: "🌟 New Order Received! #" + newOrder.orderId.toString().slice(-4),
+                description: "```A new order has been placed through the website```",
+                color: 0x2ECC71, // Professional green color
+                fields: [
+                    {
+                        name: "👤 Customer Details",
+                        value: [
+                            `**Name:** ${formData.name}`,
+                            `**Phone:** ${formData.phone}`,
+                            `**Address:** ${formData.address}`,
+                        ].join('\n'),
+                        inline: false
+                    },
+                    {
+                        name: "💳 Payment Information",
+                        value: `**Method:** ${formData.paymentMethod.toUpperCase()}\n**Total Amount:** $${newOrder.orderTotal.toFixed(2)}`,
+                        inline: false
+                    },
+                    {
+                        name: "🛍️ Order Items",
+                        value: cart.map(item => 
+                            `• **${item.name}**\n  └ Size: ${item.size} | Qty: ${item.quantity || 1} | Price: $${(item.price * (item.quantity || 1)).toFixed(2)}`
+                        ).join('\n'),
+                        inline: false
+                    }
+                ],
+                thumbnail: {
+                    url: "https://sambath99.github.io/anxiety/img/logo.PNG" // Replace with your store's logo
+                },
+                footer: {
+                    text: "Anxiety Store | Order Management System",
+                    icon_url: "https://i.imgur.com/AfFp7pu.png" // Replace with your store's icon
+                },
+                timestamp: new Date().toISOString(),
+                author: {
+                    name: "🛍️ Anxiety Store",
+                    url: "https://sambath99.github.io/anxiety/"
+                }
+            }]
+        };
+
+        // Create Telegram message
+        const telegramMessage = `
+🌟 *New Order #${newOrder.orderId.toString().slice(-4)}*
+
+👤 *Customer Details*
+▪️ Name: ${formData.name}
+▪️ Phone: ${formData.phone}
+▪️ Address: ${formData.address}
+
+💳 *Payment Information*
+▪️ Method: ${formData.paymentMethod.toUpperCase()}
+▪️ Total: $${newOrder.orderTotal.toFixed(2)}
+
+🛍️ *Order Items*
+${cart.map(item => `▪️ ${item.name}
+   Size: ${item.size} | Qty: ${item.quantity || 1} | Price: $${(item.price * (item.quantity || 1)).toFixed(2)}`).join('\n')}
+
+📊 *Order Summary*
+▪️ Total Items: ${cart.reduce((sum, item) => sum + (item.quantity || 1), 0)}
+▪️ Status: 🟡 Pending
+▪️ Time: ${new Date().toLocaleString('en-US', { 
+    timeZone: 'Asia/Phnom_Penh',
+    dateStyle: 'medium',
+    timeStyle: 'short'
+})}`;
+
+        // Execute all three API calls simultaneously
+        const [binData, discordResponse, telegramResponse] = await Promise.all([
+            // Get existing orders from JSONBin
+            fetch('https://api.jsonbin.io/v3/b/672f62feacd3cb34a8a58d90', {
+                headers: {
+                    'X-Master-Key': '$2a$10$ecN6fjgbGla2pDCn7zYV1uaxDxNAQ.8chczGAcSCuGMQAFhPcXhEC'
+                }
+            }).then(res => res.json()),
+            
+            // Send Discord webhook
+            fetch('https://discord.com/api/webhooks/1305036953468796928/4ZIYHJjTqjJplpaRT9jJ5JfoQvgKg37rXjq6WRmFSJHOxdjqY6jn78Rkfuw54vOQ1VUJ', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(discordMessage)
+            }),
+
+            // Send Telegram message
+            fetch(`https://api.telegram.org/bot8176551618:AAGZy2gxoXfxIjCnczbsGYzBeTGxsB6p-Jw/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: '1046129729',
+                    text: telegramMessage,
+                    parse_mode: 'Markdown'
+                })
+            })
+        ]);
+
+        // Update JSONBin with new order
+        const existingOrders = Array.isArray(binData.record) ? binData.record : [];
         const updatedOrders = [...existingOrders, newOrder];
         
-        // Update the bin with all orders
-        const updateResponse = await fetch('https://api.jsonbin.io/v3/b/672f62feacd3cb34a8a58d90', {
+        await fetch('https://api.jsonbin.io/v3/b/672f62feacd3cb34a8a58d90', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -176,15 +260,9 @@ async function handleCheckout(e) {
             },
             body: JSON.stringify(updatedOrders)
         });
-        
-        if (!updateResponse.ok) {
-            throw new Error('Failed to update orders');
-        }
-        
-        // Clear cart
+
+        // Clear cart and show success
         localStorage.removeItem('cart');
-        
-        // Show success message
         showToast('Order placed successfully!', 'success');
         
         // Redirect after delay
@@ -199,6 +277,7 @@ async function handleCheckout(e) {
         submitButton.innerHTML = 'Place Order';
     }
 }
+
 document.onkeydown = (e) => {
     if (e.key == 123) {
         e.preventDefault();
