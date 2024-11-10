@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News/Discount Admin Panel</title>
+    <link rel="stylesheet" href="news.css">
+</head>
+<body>
+    <div class="admin-panel">
+        <h2>News/Discount Admin Panel</h2>
+        <form id="newsForm">
+            <div class="form-group">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="postStatus" name="postStatus">
+                    <label for="postStatus">
+                        Enable Post (Show/Hide Everything)
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="imageUrl">
+                    <i class="fas fa-image"></i> Image URL:
+                </label>
+                <input type="text" id="imageUrl" name="imageUrl" placeholder="Enter image URL here...">
+                <img id="previewImage" class="preview-image" style="display: none;">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="imageStatus" name="imageStatus">
+                    <label for="imageStatus">
+                        Show Image
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">
+                    <i class="fas fa-comment-alt"></i> Message:
+                </label>
+                <textarea id="message" name="message" rows="4" placeholder="Enter your message here..."></textarea>
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="messageStatus" name="messageStatus">
+                    <label for="messageStatus">
+                        Show Message
+                    </label>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Save Changes</button>
+        </form>
+    </div>
+    <script src="news.js"></script>
+</body>
+</html>
