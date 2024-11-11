@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sazy Shop Waitlist</title>
+    <link rel="stylesheet" href="register.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Add this link for Bebas Neue font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <style>
+        body {
+            visibility: hidden; /* Initially hide content */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="waitlist-card">
+            <img src="img/logo2.png" alt="Anxiety Logo" style="width: 150px; margin-bottom: 20px;">
+           
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+            <div class="typing-container">
+                <p class="typing-text">Early Access</p>
+            </div>
+            
+            <form id="waitlist-form">
+                <div class="input-group">
+                    <i class="far fa-envelope"></i>
+                    <input type="email" id="email" name="to_email" placeholder="" required>
+                    <span class="placeholder-text">Enter your email</span>
+                </div>
+                <button type="submit">
+                    <span class="button-text">Join Waitlist</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+            
+            <div id="status" class="status"></div>
+        </div>
+    </div>
+    <div class="dialog-overlay" id="dialogOverlay">
+        <div class="dialog">
+            <div class="dialog-content success-dialog">
+                <div class="dialog-icon">🛍️</div>
+                <h2>Success!</h2>
+                <p>You're on the list! Check your email</p>
+                <button class="dialog-button" onclick="closeDialog()">Got it!</button>
+            </div>
+        </div>
+    </div>
+    <script src="register.js"></script>
+</body>
+</html>

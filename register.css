@@ -1,0 +1,688 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    padding: 20px;
+    overflow: hidden; /* Prevent container overflow */
+}
+
+.waitlist-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.waitlist-card:hover {
+    transform: translateY(-5px);
+}
+
+.emoji-header {
+    font-size: 50px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+h1 {
+    font-family: "Bebas Neue", sans-serif;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 48px;
+    letter-spacing: 2px;
+}
+
+p {
+    color: #ffffff;
+    margin-bottom: 30px;
+     font-family: "Nunito", sans-serif;
+    font-size: 1.1rem;
+    border-right: 2px solid rgba(255,255,255,.75);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(40) 1s 1 normal both,
+               blink 500ms steps(40) infinite normal;
+    width: fit-content;
+    margin: 0 auto 30px auto;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 5px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.input-group i {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 5px;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    z-index: 1;
+}
+
+/* Updated Chrome autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+ 
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #ffffff !important;
+    transition: background-color 5000s ease-in-out 0s;
+    font-size: 16px !important;
+}
+
+/* Additional Firefox autofill fix */
+input:-moz-autofill,
+input:-moz-autofill:focus {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: #ffffff !important;
+}
+
+/* Additional Edge/IE autofill fix */
+input:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.input-group:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.input-group:focus-within {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.2);
+}
+
+.input-group:focus-within i {
+    color: #ff6b6b;
+}
+
+.placeholder-text {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: transparent;
+    z-index: 0;
+}
+
+.input-group input:focus + .placeholder-text,
+.input-group input:valid + .placeholder-text {
+    top: -25px;
+    left: 15px;
+    font-size: 12px;
+    color: #ff6b6b;
+}
+
+.input-group input:focus + .placeholder-text,
+.input-group input:not(:placeholder-shown) + .placeholder-text {
+    top: -25px;
+    left: 15px;
+    font-size: 12px;
+    color: #ff6b6b;
+    z-index: 2;
+}
+
+button {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #45a049;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+.status {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.success, .error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.success {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.error {
+    background: #ffebee;
+    color: #c62828;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px; /* Reduced padding */
+        min-height: 100vh;
+        height: 100%; /* Ensure it fits viewport */
+    }
+    
+    .waitlist-card {
+        padding: 20px; /* Reduced padding */
+        margin: 0; /* Remove margins */
+        transform: none !important; /* Prevent transform animations on mobile */
+    }
+    
+    h1 {
+        font-size: 36px;
+    }
+    
+    p {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+    
+    .countdown-container {
+        gap: 10px;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+        padding: 10px;
+    }
+    
+    .countdown-item span {
+        font-size: 18px;
+    }
+    
+    .countdown-item .label {
+        font-size: 10px;
+    }
+    
+    input[type="email"] {
+        font-size: 14px;
+        padding: 12px;
+    }
+    
+    button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.countdown-item span {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.countdown-item .label {
+    display: block;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* Improved Mobile Responsiveness for Countdown */
+@media (max-width: 480px) {
+    .countdown-container {
+        gap: 8px;  /* Reduced gap between items */
+        margin: 20px 0;  /* Reduced vertical margin */
+    }
+    
+    .countdown-item {
+        min-width: 65px;  /* Reduced minimum width */
+        padding: 8px;     /* Reduced padding */
+        border-radius: 8px;
+    }
+    
+    .countdown-item span {
+        font-size: 16px;  /* Smaller font size for numbers */
+    }
+    
+    .countdown-item .label {
+        font-size: 10px;  /* Smaller font size for labels */
+        margin-top: 3px;
+    }
+}
+
+/* For even smaller screens */
+@media (max-width: 360px) {
+    .countdown-container {
+        gap: 5px;
+    }
+    
+    .countdown-item {
+        min-width: 55px;
+        padding: 6px;
+    }
+    
+    .countdown-item span {
+        font-size: 14px;
+    }
+    
+    .countdown-item .label {
+        font-size: 8px;
+    }
+}
+
+/* Add typing animation */
+@keyframes typing {
+    from { 
+        width: 0;
+        visibility: visible; /* Ensures text is hidden at start */
+    }
+    to { 
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+@keyframes blink {
+    from { border-color: transparent }
+    to { border-color: rgba(255,255,255,.75); }
+}
+
+/* Add floating animation to the logo */
+img {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Updated typing text styles */
+.typing-text {
+    color: #ffffff;
+     font-family: "Nunito", sans-serif;
+    font-size: 1.1rem;
+    border-right: 2px solid rgba(255,255,255,.75);
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px; /* Adjusted width */
+    margin: 0 auto 30px auto;
+    padding: 0 10px;
+    text-align: center;
+    line-height: 1.6; /* Added line height for better spacing */
+    white-space: pre-line; /* Allows line breaks */
+    animation: typing 4s steps(50) 1s 1 normal both,
+               blink 500ms steps(40) infinite normal;
+}
+
+@keyframes typing {
+    from { 
+        width: 0;
+        visibility: visible;
+    }
+    to { 
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+/* For larger screens */
+@media (min-width: 1024px) {
+    .typing-text {
+        font-size: 1.2rem;
+        margin-bottom: 40px; /* More space below text */
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    .typing-text {
+        font-size: 0.9rem;
+        white-space: pre-line;
+        border-right: none;
+        animation: fadeIn 1s ease-in;
+        line-height: 1.4;
+        margin-bottom: 20px;
+        max-width: 100%;
+    }
+}
+
+/* Simplified placeholder animation */
+@keyframes floatingPlaceholder {
+    0% { transform: translateY(-50%) translateX(0px); }
+    50% { transform: translateY(-50%) translateX(3px); }
+    100% { transform: translateY(-50%) translateX(0px); }
+}
+
+.input-group:hover .placeholder-text:not(.moved) {
+    animation: floatingPlaceholder 2s ease-in-out infinite;
+}
+
+.typing-container {
+    margin: 0 auto 30px auto;
+    text-align: center;
+}
+
+.typing-text {
+    color: #ffffff;
+     font-family: "Nunito", sans-serif;
+    font-size: 1.1rem;
+    overflow: hidden;
+    width: 0;
+    white-space: nowrap;
+    display: inline-block;
+    margin: 0 auto;
+    visibility: hidden;
+    animation: typing 2s steps(30) forwards;
+    border-right: none !important;
+}
+
+@keyframes typing {
+    from { 
+        width: 0;
+        visibility: visible;
+        border-right: none;
+    }
+    to { 
+        width: 100%;
+        visibility: visible;
+        border-right: none;
+    }
+}
+
+/* For larger screens */
+@media (min-width: 1024px) {
+    .typing-text {
+        font-size: 1.2rem;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+    .typing-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* Dialog Styles */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.dialog {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    animation: slideUp 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dialog-content {
+    color: #ffffff;
+}
+
+.dialog-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: bounce 1s ease infinite;
+}
+
+.dialog h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.dialog p {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.dialog-button {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.dialog-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Mobile responsiveness for dialog */
+@media (max-width: 480px) {
+    .dialog {
+        width: 85%;
+        padding: 25px;
+    }
+    
+    .dialog h2 {
+        font-size: 24px;
+    }
+    
+    .dialog p {
+        font-size: 14px;
+    }
+}
+
+/* Logo animation */
+.waitlist-card img {
+    width: 150px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    animation: floatLogo 3s ease-in-out infinite;
+}
+
+.waitlist-card img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+@keyframes floatLogo {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Title animation */
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    transition: all 0.3s ease;
+    animation: glowText 2s ease-in-out infinite;
+}
+
+.bebas-neue-regular:hover {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    letter-spacing: 3px;
+}
+
+@keyframes glowText {
+    0% {
+        text-shadow: 0 0 0px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        text-shadow: 0 0 0px rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Adjust mobile responsiveness */
+@media (max-width: 480px) {
+    .waitlist-card img {
+        transform: none !important;
+        animation: none; /* Disable floating animation on mobile */
+        margin-bottom: 15px; /* Reduced margin */
+    }
+
+    /* Adjust title animation for mobile */
+    .bebas-neue-regular:hover {
+        letter-spacing: normal; /* Disable letter spacing on mobile */
+    }
+}
