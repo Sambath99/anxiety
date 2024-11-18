@@ -1,43 +1,9 @@
-const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slider img');
+
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
 let currentIndex = 0;
 
-// Create navigation dots
-slides.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.classList.add('nav-dot');
-    dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateSlider();
-    });
-    slider.appendChild(dot);
-});
 
-function updateSlider() {
-    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-    // Update active dot
-    document.querySelectorAll('.nav-dot').forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-    });
-}
-
-prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlider();
-});
-
-nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlider();
-});
-
-// Auto-advance slides every 5 seconds
-setInterval(nextSlide, 5000);
-
-// Initial state
-updateSlider();
 
 // Cart functionality
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -167,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initialize
 updateCart();
-updateSlider();
+
 
 // Smooth Scroll - Updated
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -352,11 +318,7 @@ function updateCartCount(count) {
     setTimeout(() => cartCount.classList.remove('updating'), 500);
 }
 
-// First, fix the undefined nextSlide function
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlider();
-}
+
 
 // Add cart modal functionality
 const cartIcon = document.querySelector('.cart-icon');
@@ -541,6 +503,7 @@ document.querySelector('.youtube-link').addEventListener('click', function(e) {
     // window.open('./contact.html', '_blank'); // Open contact.html in new tab
 });
 //prevent inspect
+/*
 document.onkeydown = (e) => {
     if (e.key == 123) {
         e.preventDefault();
@@ -561,3 +524,4 @@ document.onkeydown = (e) => {
         e.preventDefault();
     }
 };
+*/
