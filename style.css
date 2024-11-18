@@ -28,7 +28,7 @@ body {
 
 /* Header Styles - Updated */
 header {
-    background: #ffffff;
+    background: #89cff0;
     padding: 0;
     position: fixed;
     width: 100%;
@@ -278,7 +278,7 @@ main {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, #42569C, #FF4081, #42569C);
+    background: #89cff0;
     background-size: 200% 100%;
     animation: gradientMove 3s linear infinite;
     border-radius: 3px;
@@ -579,7 +579,7 @@ main {
 
 
 .add-to-cart {
-    background: #42569C;
+    background: #89cff0;
     color: #ffffff;
 }
 
@@ -1020,7 +1020,7 @@ html {
     right: 10px;
     width: 40px;
     height: 40px;
-    background: var(--primary-color);
+    background: #89cff0;
     border-radius: 8px;
     color: white;
     align-items: center;
@@ -1069,7 +1069,7 @@ html {
 }
 
 .mobile-nav-links a:hover {
-    color: var(--primary-color);
+    color: #89cff0;
     padding-left: 10px;
 }
 
@@ -1850,7 +1850,7 @@ html {
         right: 10px;
         width: 40px;
         height: 40px;
-        background: var(--primary-color);
+        background: #89cff0;
         border-radius: 8px;
         color: white;
         align-items: center;
@@ -1968,7 +1968,7 @@ html {
     width: 80%;
     max-width: 300px;
     height: 100vh;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    background: #89cff0;
     padding: 80px 0 40px;
     transition: 0.3s ease;
     z-index: 1001;
